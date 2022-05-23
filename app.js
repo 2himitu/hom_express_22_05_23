@@ -1,8 +1,21 @@
 import express from "express";
 import mysql from "mysql2/promise";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+// expewss cors 허용 도메인 설정
+
+const corsOptions = {
+  origin: "https://cdpn.io",
+  optionsSuccessStatus: 200, 
+  // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+//모든 도메인 허용
+//app.use(cors());
+//expewss cors 허용
+app.use(cors(corsOptions));
 const port = 3000;
 
 // sqlpool;
